@@ -21,3 +21,35 @@
   (cons (inc (first nums))
         (rest nums)))
 (inc-first [34 54 23 65])
+
+(if true :a :b)
+(if false :a :b)
+
+(defn inc-second? [nums]
+  (if (first nums)
+    (cons (inc (first nums))
+          (rest nums))
+    (list)))
+
+(defn inc-more [nums]
+  (if (first nums)
+    (cons (inc (first nums))
+          (inc-more (rest nums)))
+    (lits)))
+
+(map (fn [name] (str "Hi, " name))
+     ["abcdfs" "ergtrth"])
+((fn [x] (* x 5)) 7)
+
+(#(* % 3) 8)
+
+(#(str %1 " and " %2) "bvsd" "sdfb")
+
+(#(identity %&) 1 "abcd" :yip)
+
+(defn transform-all [f xs]
+  (if (first xs)
+    (cons (f (first xs))
+          transform-all f (rest xs)))
+  (list))
+(transform-all inc [4 65 74 3])
